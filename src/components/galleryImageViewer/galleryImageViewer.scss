@@ -1,0 +1,80 @@
+@import '../../global.scss';
+
+
+    .fullScreenImageContainer {
+        display: none;
+        &.active{
+            display: flex;
+            position: absolute;
+            width: inherit;
+            height: inherit;
+
+            .fullScreenImageContainerBackground{
+                display: flex;
+                position: absolute;
+                width: inherit;
+                height: inherit;
+                background-color: black;
+                z-index: 3;
+                opacity: 0.85;
+            }
+        
+        
+            .imgContainer{
+                align-items: center;
+                justify-content: center;
+                display: flex;
+                height: 500px;
+                width: 100%;
+                z-index: 3;
+                margin-top: 40px;
+                transition: all 1s ease;
+
+
+                @include mobile{
+                    height: 400px;
+                    width: 100%;
+                    object-fit: contain;
+                }
+        
+                img{
+                    height: inherit;
+                    @include mobile{
+                        object-fit: contain;
+                    }
+                }
+        
+                .closeImgDiv{
+                    height: 100%;
+                    cursor: pointer;
+                    .closeImg{
+                        display: flex; 
+                        position: absolute;
+                        right: 0;
+                        margin: 0 50px 0 0;
+                        color: white;
+                        font-size: 40px;
+                        border: 5px solid white;
+                        padding: 0 10px 0 10px;
+
+                        @include mobile{
+                            top:0;
+                            right: 0;
+                            margin: 10px 10px 0 0;
+                            font-size: 30px;
+                            font-weight: bolder;
+                            color: black;
+                            border: 5px solid rgb(179, 2, 2);
+                            background-color: white;
+                            padding: 0 10px 0 10px;
+                        }
+                    }
+                }
+    
+            }
+        }
+    
+    
+    }
+
+
