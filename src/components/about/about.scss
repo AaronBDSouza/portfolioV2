@@ -1,0 +1,63 @@
+@import "../../global.scss";
+.about{
+    display: block;
+    
+    h1{
+        display: flex;
+        width: 100%;
+        font-size: 50px;
+        justify-content: center;
+        margin-top: 30px;
+        //margin-left: 25%;
+        //margin-right: 25%;
+        // top:10;
+        @include mobile{
+            font-size: 25px; 
+            margin-top: 30px;
+        }
+    }
+
+
+
+    .aboutWrapper{
+        display: flex;
+        .left{
+            flex:0.4;
+            display: flex;
+            justify-content: center;
+
+            .aboutImage{
+                top: -25px;
+                display: flex;
+                position: relative;
+                justify-content: center;
+                width: 350px;
+                height: 350px;
+                background-image: url('../../../public/assets/dp5_300px.jpg');
+                background-size:cover;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        }
+    
+        .right{
+            flex: 0.6;
+            position: relative;
+            p{
+                position: relative;
+                margin-top: 0px;
+                top: -15px;
+                width: 90%;
+                font-size: 21px;
+                font-weight: 600; 
+                color: $mainColor;
+                text-align: justify;
+                @include mobile{
+                    font-size: 25px; 
+                    margin-top: 30px;
+                }
+            }
+        }
+    }
+
+}

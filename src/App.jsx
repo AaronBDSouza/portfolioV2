@@ -9,6 +9,10 @@ import Contact from "./components/contact/Contact";
 import "./App.scss";
 import { useState } from "react";
 import ProjectViewer from "./components/projectViewer/ProjectViewer";
+import About from "./components/about/About";
+import Skills from "./components/skills/Skills";
+import Experience from "./components/experience/Experience";
+
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -19,7 +23,10 @@ function App() {
       <Menu menuOpen = { menuOpen } setMenuOpen = {setMenuOpen}/>
       <div className="sections">
         <Intro/>
-        <ProjectsList/>
+        <About/>
+        <Skills/>
+        <Experience/>
+        {/* <ProjectsList/> */}
         <Gallery/>
         <Contact/>
         {/* <Projects/> */}

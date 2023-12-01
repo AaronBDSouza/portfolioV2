@@ -122,49 +122,6 @@
             height: 220px;
             cursor: pointer;
         }
-
-        // #img1 {
-        //     top: 50px;
-        //     left: -50px;
-        //     z-index: 4;
-        // }
-
-        // #img2 {
-        //     top: 200px;
-        //     left: -50px;
-        //     z-index: 3;
-        // }
-
-        // #img3 {
-        //     top: 95px;
-        //     left: 70px;
-        //     z-index: 2;
-        // }
-
-        // .imageRibbonContainer{
-        //     position: absolute;
-        //     height: 100%;
-        //     width: 100%;
-        //     .imageRibbon {
-        //         height: 25%;
-        //         width: 10%;
-        //         border: 10px solid crimson;
-        //         border-radius: 50%;
-        //         display: flex;
-        //         z-index: 1;
-        //     }
-        // }
-
-
-        // @include mobile{
-        //     flex:0.6;
-        // }
-
-        // //smallest screen config
-        // @media(max-height: 500px){
-        //     flex:0.5;
-        // }
-
     }
 
     .right{
@@ -238,9 +195,15 @@
 
                     font-size: 15px;
                 }
-            }           
+            }
+            
+            .nameH1{
+                color: $mainColor;
+            }
 
             .dynamicText{
+                margin-left: 50px;
+                text-align: center;
                 font-size: inherit;
                 color: crimson;       
             }

@@ -1,0 +1,46 @@
+@import "../../global.scss";
+
+.cardPopUp{
+    width: 150px;
+    height: 220px;
+    position: absolute;
+    background-color: rgb(223, 254, 254);
+    border: 1px solid rgb(214, 214, 214);
+    border-radius: 15px;
+    text-align: center;
+    z-index: 3;
+
+    img{
+        margin-top: 2px;
+        padding: 5px;
+        width: 100px;
+        height: 100px;
+    }
+
+    .headerText{
+        margin-bottom: 10px;
+        font-weight: 700;
+    }
+
+    .ratingText{
+        font-weight: 500;
+    }
+
+    .ratingTextNumbers{
+        margin-left: 10%;
+        margin-bottom: 10px;
+        font-weight: 500;
+        width: 80%;
+        display: flex;
+        justify-content: space-between
+    }
+
+    .cardPopUpCaret{
+        rotate: 45deg;
+        top: -10px;
+        left: -10px;
+        font-size: 20px;
+        position: absolute;
+        display: flex;
+    }
+}

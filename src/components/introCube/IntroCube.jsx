@@ -84,7 +84,6 @@ export default function IntroCube() {
           };
 
           var cube2 = document.querySelector('.cube');
-          console.log(cube2);
           cube2.classList.toggle('is-spinning',true);
     };
 
@@ -94,21 +93,12 @@ export default function IntroCube() {
         <div className="introCube" id="introCube">
             <div className="scene">
                 <div className="cube is-spinning">
-                    {/* <div className="cube__face cube__face--front"> */}
-                    {/* <img src="assets/dp.jpg" alt="profile_picture"/> */}
-                    {/* </div> */}
-                    {/* <img className="cube__face cube__face--front" src="assets/dp.jpg" alt="profile_picture"/>
-                    <img className="cube__face cube__face--back" src="assets/dp.jpg" alt="profile_picture"/>
-                    <img className="cube__face cube__face--right" src="assets/dp.jpg" alt="profile_picture"/>
-                    <img className="cube__face cube__face--left" src="assets/dp.jpg" alt="profile_picture"/>
-                    <img className="cube__face cube__face--top" src="assets/dp.jpg" alt="profile_picture"/>
-                    <img className="cube__face cube__face--bottom" src="assets/dp.jpg" alt="profile_picture"/> */}
                     <div className="cube__face cube__face--front"></div>
-                    <div className="cube__face cube__face--back">back</div>
-                    <div className="cube__face cube__face--right">right</div>
-                    <div className="cube__face cube__face--left">left</div>
-                    <div className="cube__face cube__face--top">top</div>
-                    <div className="cube__face cube__face--bottom">bottom</div>
+                    <div className="cube__face cube__face--back"></div>
+                    <div className="cube__face cube__face--right"></div>
+                    <div className="cube__face cube__face--left"></div>
+                    <div className="cube__face cube__face--top"></div>
+                    <div className="cube__face cube__face--bottom"></div>
                 </div>
             </div>
             <div className="hideIntroCubeControls">

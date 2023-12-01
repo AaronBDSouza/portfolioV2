@@ -4,7 +4,8 @@
     .sections{
         width: 100%;
         height: calc(100vh - 70px);
-        background-color: lightsalmon;
+        // background-color: #ebebeb;
+        background: linear-gradient(90deg,blue,skyblue,blue);
         position: relative;
         top: 70px;
         scroll-behavior: smooth;
