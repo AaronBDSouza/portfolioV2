@@ -1,0 +1,13 @@
+$mainColor:  rgb(18, 18, 77);
+
+$width: 768px;
+
+$sectionHeader: 50px;
+
+$backgroundColor: gainsboro;
+
+@mixin mobile{
+    @media(max-width: #{$width}){
+        @content
+    }
+}
