@@ -44,10 +44,8 @@ export default function Skills() {
 
     return (
         <div className="skills" id="skills" onClick={(e) => {componentListener(e)}}>
-
             <h1>Skills & Technologies</h1>
             <div className="skillsWrapper">
-
                 <div className="top">
                     <div className="skillsImages">
                         {skillsImages.map((dataItem) => (
@@ -84,6 +82,7 @@ export default function Skills() {
                                     </li>
                                 ))}
                             </ul>
+                            <div className="userHint">( Hover for Rating )</div>
                         </div>
                     </div>
 

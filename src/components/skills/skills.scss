@@ -1,16 +1,18 @@
 @import "../../global.scss";
 .skills{
     display: block;
+    scroll-snap-align: start;
     
     h1{
         display: flex;
         width: 100%;
-        font-size: 50px;
+        font-size: $sectionHeader;
         justify-content: center;
         margin-top: 30px;
         @include mobile{
             font-size: 25px; 
-            margin-top: 30px;
+            margin-bottom: 50px;
+            text-align: center;
         }
     }
 
@@ -71,11 +73,8 @@
                     span{
                         font-size: 14px;
                         font-weight: 700;
-                        // border-radius: 15%;
-                        background-color: white;
-                        // border: 1px solid red;
+                        background-color: $backgroundColor;
                         padding: 0 15px 0 15px;
-                        // justify-content: center;
                         text-shadow: 0 1px 0 #ccc, 0 1px 0 #ccc,
                          0 1px 0 #ccc, 0 1px 0 #ccc,
                          0 1px 0 #ccc, 0 2px 0 #ccc,
@@ -102,6 +101,15 @@
                         }
                     }
                 }
+
+                @include mobile{
+                    &:hover{
+                        width: 120px;
+                        height: 100px;
+                    }
+                }
+
+
             }
 
             .skillImage:nth-child(1){
@@ -153,8 +161,15 @@
             top: -20px;
             z-index: 1;
 
+            @include mobile{
+                display: block;
+            }
+
             .listWrapper{
                 display: block;
+                @include mobile{
+                    margin-left: 10%;
+                }
 
                 .listHeader{
                     font-size: 20px;
@@ -164,6 +179,20 @@
                     display: flex;
                     justify-content: center;
                     text-decoration: underline;
+                    @include mobile{
+                        font-size: 16px;
+                        margin-top: 20px;
+                    }
+                }
+            }
+
+            .userHint{
+                width: 100%;
+                text-align: center;
+                font-weight: bold;
+                font-size: 15px;
+                @include mobile{
+                    display: none;
                 }
             }
 
@@ -171,11 +200,18 @@
                 list-style-type: none;
                 text-align: center;
                 justify-content: space-around;
+                @include mobile{
+                    padding: 0px;
+                }
 
                 li{
                     font-size: 14px;
                     margin-bottom: 30px;
                     cursor: pointer;
+                    @include mobile{
+                        display: flex;
+                        justify-content: center;
+                    }
                 }
 
                 span{
@@ -206,6 +242,12 @@
                         border: 1.5px solid #BD1550;
                         background-color: white; 
                     }
+
+                    @include mobile{
+                        padding: 2px;
+                        margin-right: 1px;
+                        border-radius: 0px;
+                    }
                 }
             }
 
@@ -213,7 +255,6 @@
                 flex:0.35;
                 display: flex;
                 justify-content: center;
-                border: 1px solid rgb(251, 251, 118);
 
                 .tooltip {
                     position: relative;
@@ -254,16 +295,13 @@
 
             .middle{
                 flex:0.35;
-                border: 1px solid rgb(251, 251, 118);
             }
 
             .right{
                 flex:0.3;
                 display: flex;
                 justify-content: center;
-                border: 1px solid rgb(246, 246, 114);
             }
         }
     }
-
 }

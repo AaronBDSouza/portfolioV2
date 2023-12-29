@@ -28,8 +28,6 @@ export default function IntroCube() {
             new RangeDisplay( ranges[i] );
           }
           
-          
-          
           var scene = document.querySelector('.scene');
           var cube = document.querySelector('.cube');
           var originX = 50;
@@ -45,7 +43,7 @@ export default function IntroCube() {
           perspectiveRange.onchange = perspectiveRange.oninput = function() {
             var value = perspectiveRange.value + 'px';
             // set to none at max
-            if ( value == '1000px' ) {
+            if ( value === '1000px' ) {
               value = 'none';
               perspectiveDisplay.textContent = 'none';
             }
@@ -102,7 +100,7 @@ export default function IntroCube() {
                 </div>
             </div>
             <div className="hideIntroCubeControls">
-              <p>
+              {/* <p>
                   <label>
                       perspective
                       <input className="perspective-range" type="range" min="1" max="1000" value="400" data-units="px" />
@@ -123,7 +121,7 @@ export default function IntroCube() {
               <p>
                   <label>
                       Backface visible
-                      <input className="backface-checkbox" type="checkbox" checked />
+                      <input className="backface-checkbox" type="checkbox"/>
                   </label>
               </p>
               <p>
@@ -131,7 +129,7 @@ export default function IntroCube() {
                     Spin cube
                     <input className="spin-cube-checkbox" type="checkbox" />
                 </label>
-            </p>
+              </p> */}
             </div>
 
         </div>

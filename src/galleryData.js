@@ -22,13 +22,6 @@ export const galleryData = [
         img: "assets/gallery_images/colossus3.jpg"
     },
     {
-        id: 4,
-        title: "Technotroncis",
-        location: "DMS College, Mapusa",   
-        year: "2018",          
-        img: "assets/gallery_images/technotronics1.jpg"
-    },
-    {
         id: 5,
         title: "Technotroncis",
         location: "DMS College, Mapusa",   

@@ -13,16 +13,55 @@ export default function Gallery() {
     const [fullScreenImageActive, setFullScreenImageActive] = useState(false);
     const [selectedImgSrc, setSelectedImgSrc ] = useState('');
     const [selectedImgTitle, setSelectedImgTitle ] = useState('');
+    let slideTranslateDistance = 400;
+    let slideTranslatedDistance = 0;
+    let sliderScrollLeft = 0;
+    let slideTranslatedDistances = [];
+
+    function getOffsetWidthOfSliderItem(){
+        let elementParent =  document.getElementsByClassName("slider")[0];
+        if(elementParent.offsetWidth < 250) {
+            slideTranslateDistance = 250;
+            // console.log(slideTranslateDistance)
+        }
+    }
 
     //Function controls no. of images displayed based on screen width
-    const handleClick = (direction) => {
+    const handleClick = async(direction) => {
+        getOffsetWidthOfSliderItem();
+        let slider = document.querySelector(".slider");
+        sliderScrollLeft = slider.scrollLeft;
 
-        //if screen width small than show 1 or 2 images in visible port else 3 
-        screenWidth <= 768? setNosOfSlidesInView(screenWidth <= 550? 1:2): setNosOfSlidesInView(3)
+        if(direction === "left") {
+            slider.scrollBy(-slideTranslateDistance, 0);
+        }
 
-        //left right arrow btn logic
-        direction === "left" ? setCurrentSlide(currentSlide > 0 ? currentSlide - 1: galleryData.length - nosOfSlidesInView) :
-        setCurrentSlide(currentSlide < galleryData.length - nosOfSlidesInView ? currentSlide + 1: 0)       
+        if(direction === "right") {
+            slider.scrollBy(slideTranslateDistance, 0);
+        }
+
+        slideTranslatedDistance = slideTranslatedDistance + slideTranslateDistance;
+
+        if(slideTranslatedDistances.includes(sliderScrollLeft)) {
+            if(direction === "right") {
+                slider.scrollBy(-slideTranslatedDistance, 0);
+                slideTranslatedDistances = [];
+            }
+        }
+        else{
+            slideTranslatedDistances.push(sliderScrollLeft);
+        }
+
+        if(direction === "left" && slider.scrollLeft === 0) {
+            slider.scrollBy(slider.scrollWidth, 0);
+        }
+
+        // //if screen width small than show 1 or 2 images in visible port else 3 
+        // screenWidth <= 768? setNosOfSlidesInView(screenWidth <= 550? 1:2): setNosOfSlidesInView(3)
+
+        // //left right arrow btn logic
+        // direction === "left" ? setCurrentSlide(currentSlide > 0 ? currentSlide - 1: galleryData.length - nosOfSlidesInView) :
+        // setCurrentSlide(currentSlide < galleryData.length - nosOfSlidesInView ? currentSlide + 1: 0)     
     }
 
     //Sets selected img's details to the assigned variables
@@ -32,6 +71,18 @@ export default function Gallery() {
         setSelectedImgTitle(title);
     }
 
+    document.addEventListener("keydown", (e) => {
+        if (!fullScreenImageActive) {    
+            if(e.key === "ArrowLeft") {
+                handleClick("left");
+            } 
+
+            if(e.key === "ArrowRight") {
+                handleClick("right");
+            }
+        }
+
+    });
 
     return (
         <div className="gallery" id="gallery">
@@ -46,36 +97,41 @@ export default function Gallery() {
             <span className="arrowContainer right"></span>
             <img src="assets/left_arrow.png" alt="right" className="arrow right" onClick={() => handleClick("right")}/>
             
-            {/* Slideshow for Medium to Large Screens */}                 
-            <div className="slider" style={ (screenWidth > 768? {transform: `translateX(-${currentSlide * 430}px)`}: {transform: `translateX(-${currentSlide * 290}px)`})}>
-                {   galleryData.map((sliderItem) => (
-                <div className="container">
-                    <div className="item">
-                        <div className="top">
-                            <div className="leftContainer">
-                                <div className="imgContainer">
-                                    <img src={sliderItem.img} alt={sliderItem.title} onClick={() =>  handleImageClick(sliderItem.img,sliderItem.title)}/>
+            {/* Slideshow for Medium to Large Screens */}
+            <div className="sliderContainer">
+                <div className="slider" style={ (screenWidth > 768? {transform: `translateX(-${currentSlide * 430}px)`}: {transform: `translateX(-${currentSlide * 290}px)`})}>
+                    {   galleryData.map((sliderItem, index) => (
+                    <div key={index} className="container">
+                        <div className="item">
+                            <div className="top">
+                                <div className="leftContainer">
+                                    <div className="imgContainer">
+                                        <img src={sliderItem.img} alt={sliderItem.title} onClick={() =>  handleImageClick(sliderItem.img,sliderItem.title)}/>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div className="bottom">
-                            <h2>{sliderItem.title}</h2>
-                            <h4>{sliderItem.year + ', ' + sliderItem.location}</h4>
-                        </div> 
+                            <div className="bottom">
+                                <span className="imgTitle">{sliderItem.title}</span>
+                                <span className="imgData">{sliderItem.year + ', ' + sliderItem.location}</span>
+                            </div> 
+                        </div>
                     </div>
+                    ))}
                 </div>
-                ))}
             </div>
 
             {/* FullScreenImageView - Sends Img details to GalleryImageViewer Component*/}
-            { fullScreenImageActive ? 
-            <GalleryImageViewer 
-            fullScreenImageActive={fullScreenImageActive}
-            selectedImgSrc={selectedImgSrc}
-            selectedImgTitle={selectedImgTitle}
-            setFullScreenImageActive={setFullScreenImageActive}/> : ''}
-            
+            { 
+                fullScreenImageActive ? 
+                    <GalleryImageViewer 
+                        fullScreenImageActive={fullScreenImageActive}
+                        selectedImgSrc={selectedImgSrc}
+                        selectedImgTitle={selectedImgTitle}
+                        setFullScreenImageActive={setFullScreenImageActive}
+                    /> 
+                : ''
+            }
         </div>
     )
 }

@@ -74,12 +74,12 @@ export const skillsData = [
 		{
 			name: "html",
 			label: "HTML",
-			rating: "3.4"
+			rating: "3.1"
 		},
 		{
 			name: "css",
 			label: "CSS",
-			rating: "2.9"
+			rating: "2.7"
 		},
 		{
 			name: "sass",
@@ -89,24 +89,24 @@ export const skillsData = [
 		{
 			name: "javascript",
 			label: "Javascript",
-			rating: "3.4"
+			rating: "2.9"
 		},
 	],
 	[
 		{
 			name: "react",
 			label: "React",
-			rating: "2.7"
+			rating: "2.1"
 		},
 		{
 			name: "angular",
 			label: "Angular",
-			rating: "1.9"
+			rating: "1.8"
 		},
 		{
 			name: "nodejs",
 			label: "Node JS",
-			rating: "2.4"
+			rating: "1.6"
 		},
 		{
 			name: "sencha",
@@ -118,34 +118,34 @@ export const skillsData = [
 		{
 			name: "mysql",
 			label: "MySQL",
-			rating: "2.8"
+			rating: "2.4"
 		},
 		{
 			name: "mongodb",
 			label: "Mongo DB",
-			rating: "1.7"
+			rating: "1.1"
 		},
 		{
 			name: "firebase",
 			label: "Firebase",
-			rating: "0.8"
+			rating: "0.7"
 		},
 		{
 			name: "php",
 			label: "PHP",
-			rating: "2.4"
+			rating: "2.3"
 		},
 	],
 	[
 		{
 			name: "python",
 			label: "Python",
-			rating: "3.3"
+			rating: "2.7"
 		},
 		{
 			name: "java",
 			label: "Java",
-			rating: "2.6"
+			rating: "2.2"
 		},
 		{
 			name: "c",
@@ -266,7 +266,7 @@ export const jobDescriptionData = [
 					text: "Worked on Enterprise Software development in UI designing, functionality migration and API Integration."
 				},
 				{
-					text: "Tech Stack:- React, Angular, Node, Java, Sencha Ext JS."
+					text: "Tech Stack:- React, Angular, Typescript, Node, Java, Sencha Ext JS."
 				},
 
 			]
@@ -281,7 +281,7 @@ export const jobDescriptionData = [
 					text: "Database Management, API implementation & maintenance."
 				},
 				{
-					text: "Tech Stack:- HTML, CSS, Javascript (Vanilla, React), PHP (Core, CodeIgniter)."
+					text: "Tech Stack:- HTML, CSS, Javascript (Vanilla, React), PHP (Core, CodeIgniter), MySQL."
 				},
 			]
 		},
@@ -289,16 +289,13 @@ export const jobDescriptionData = [
 			code: "3ds",
 			textData: [
 				{
-					text: "Automation framework Implementation & benchmarks."
-				},
-				{
-					text: "Creation & management of automation scripts/suites."
+					text: "Automation framework Implementation, Benchmarks, Creation & management of automation scripts/suites."
 				},
 				{
 					text: "Issue verification, reporting of bugs, crashes & defects."
 				},
 				{
-					text: "Tech Stack:- Python (Core, PyWinAuto), JIRA."
+					text: "Tech Stack:- Python (Core, PyWinAuto), Selenium Framework, JIRA, Confluence, TestRail."
 				},
 			]
 		},		

@@ -3,83 +3,55 @@ import './experience.scss';
 import { companyExperienceData, jobDescriptionData } from '../../portfolioData';
 
 export default function Experience() {
-   let [selectedCompany, setSelectedCompany] = useState('');
-   let [previousSelectedElementInput, setPreviousSelectedElementInput] = useState(null);
    let [previousSelectedElementDiv, setPreviousSelectedElementDiv] = useState(null);
-   let [jobDescriptionHTML, setJobDescriptionHTML] = useState(null);
-   let [jobDescriptionDataReady, setJobDescriptionDataReady] = useState(false);
-   
-
+   let selectedCompany = "";
+   let jobDescriptionHTML = null;
    let timePointTopCSSValue = 60;
+   let [prevCDiv, setPrevCDiv] = useState(null);
 
     async function onCompanySelection (e, value) {
-        console.log(value);
-        let elementType = e?.target?.tagName;
-        setSelectedCompany(value);
+        selectedCompany = value;
+        let element = document.getElementById(value);
+        let CDiv = document.getElementById("cdiv"+value);
 
-        if(elementType === 'DIV') {
-            let parallelElement = document.querySelectorAll('input[value="'+value+'"]')[0];
-            let referenceElement = document.getElementById(value);
-            if(parallelElement !== null && parallelElement !== undefined) {
-                if(previousSelectedElementDiv === null) {
-                    parallelElement.checked = true;
-                    referenceElement.classList.add("selected");
-                    setPreviousSelectedElementDiv(referenceElement);
-                }
-                else{
-                    previousSelectedElementDiv.classList.remove("selected");
-                    parallelElement.checked = true;
-                    referenceElement.classList.add("selected");
-                    setPreviousSelectedElementDiv(referenceElement);
-                }
+        if(element !== null && element !== undefined) {
+            if(previousSelectedElementDiv === null) {
+                element.classList.add("selected");
+                setPreviousSelectedElementDiv(element);
+            }
+            else{
+                previousSelectedElementDiv.classList.remove("selected");
+                element.classList.add("selected");
+                setPreviousSelectedElementDiv(element);
             }
         }
 
-        if(elementType === 'INPUT') {
-            setJobDescriptionDataReady(false);
-            let parallelElement = document.getElementById(value);
-            if(parallelElement !== null && parallelElement !== undefined) {
-                if(previousSelectedElementInput === null) {
-                    parallelElement.click();
-                    setPreviousSelectedElementInput(parallelElement);
-                }
-                else{
-                    previousSelectedElementInput.classList.remove("selected");
-                    parallelElement.click();
-                    parallelElement.classList.add("selected");
-                    setPreviousSelectedElementInput(parallelElement);
-                }
-            }
-            // getJobDescriptionDetails();
-            // setJobDescriptionDataReady(true);
+        if(prevCDiv !== null) {
+            prevCDiv.classList.remove("selected");
+            CDiv.classList.add("selected");
         }
-
-        getJobDescriptionDetails();
-        let p = "";
-        if(jobDescriptionHTML !== null) {
-            jobDescriptionHTML.map((textItems) => {
-                // console.log('textItems',textItems);
-                 p = p + "<li>"+textItems.text+"</li><br/>";
-            })
+        else{
+            CDiv.classList.add("selected");
         }
-        document.getElementById("jobDescriptionTarget").innerHTML = p;
+        setPrevCDiv(CDiv);
+        
+        await getJobDescriptionDetails();
+        await setJobDescriptionDetails();
     }
 
 
 
     function initializeCompanySelectionOnRender() {
-        let referenceElement, parallelElement = null;
+        let parallelElement = null;
         companyExperienceData.map((dataItem, index) => (
             index === 0 ? (
-                console.log(dataItem[0]?.value),
-                referenceElement = document.querySelectorAll('input[value="'+dataItem[0]?.value+'"]')[0],
                 parallelElement = document.getElementById(dataItem[0]?.value),
-                console.log(referenceElement, parallelElement),
-                referenceElement !== undefined && parallelElement !== undefined ?  
-                (   referenceElement.checked = true,
-                    parallelElement.classList.add("selected"),
+                parallelElement !== undefined ?  
+                (   parallelElement.classList.add("selected"),
                     setPreviousSelectedElementDiv(parallelElement),
-                    setSelectedCompany(dataItem[0]?.value)
+                    selectedCompany = dataItem[0]?.value,
+                    getJobDescriptionDetails(),
+                    setJobDescriptionDetails()
                 ) 
                 : null
             ) 
@@ -91,31 +63,34 @@ export default function Experience() {
         jobDescriptionData.map((dataItems) => (
             dataItems.map((dataItem) => (
                 dataItem?.code === selectedCompany ? (
-                    console.log(dataItem?.code, selectedCompany),
-                    // console.log(dataItem?.textData),
-                    setJobDescriptionHTML(dataItem?.textData)
+                    jobDescriptionHTML = dataItem?.textData
                 )
                 : null
             ))
         ))
     }
 
-    const initialRender = useMemo(
+    const setJobDescriptionDetails = async()  => {
+        let p = "";
+        if(jobDescriptionHTML !== null) {
+            jobDescriptionHTML.map((textItems) => {
+                 p = p + "<li>"+textItems.text+"</li><br/>";
+            })
+        }
+        document.getElementById("jobDescriptionTarget").innerHTML = p;
+    }
+
+    useMemo(
         () => (
             window.onload = function() {
                 initializeCompanySelectionOnRender();
-                setJobDescriptionDataReady(true);
-                getJobDescriptionDetails();
-                console.log('Initial');
             }
         ),
         []
     );
 
-    // initializeCompanySelectionOnRender();
-
   return (
-    <div className="experience">
+    <div className="experience" id="experience">
         <h1>Experience & Projects</h1>
         <div className="columns">
             <div className="left">
@@ -129,7 +104,7 @@ export default function Experience() {
                             <div key={index} className="listItem">
                                 <div className="listItemDetails">
                                     <span className="jobYear">{dataItem?.year}</span>
-                                    <ul className="companyDetails">
+                                    <ul className="companyDetails" id={"cdiv"+dataItem?.value}>
                                         <li>
                                             <span className="jobProfile">{dataItem?.role}</span>
                                         </li>
@@ -140,13 +115,13 @@ export default function Experience() {
                                             <span className="companyAddress">{dataItem?.address}</span>
                                         </li>
                                     </ul>
-                                    <input
+                                    {/* <input
                                         className="companySelectionButton" 
                                         type="radio" 
                                         name="company" 
                                         value={dataItem?.value} 
                                         onClick={(e) => {onCompanySelection(e, dataItem?.value)}}
-                                    />
+                                    /> */}
                                 </div>
                             </div>
                         ))
@@ -155,27 +130,35 @@ export default function Experience() {
             </div>
 
             <div className="middle">
-                <div className="timeline">
-                    <div className="currentMarker">
-                        2023
-                    </div>
-                    {companyExperienceData.map((dataItems, index) => (
-                        index > 0 ? timePointTopCSSValue = timePointTopCSSValue + 70 : timePointTopCSSValue,
-                        dataItems.map((dataItem) => (
-                            <div
-                                key={index} 
-                                className="timePoint"
-                                style={{top:`${timePointTopCSSValue}px`}}
-                                id={dataItem?.value}
-                                value={dataItem?.value}
-                                onClick={(e) => {onCompanySelection(e, dataItem?.value)}}
-                            >
+                <div className="timelineContainer">
+                    <div className="timelineContainerWrapper">
+                        <div className="currentMarker">
+                            2023
+                        </div>
+                        <div className="timelineWrapper">
+                            <div className="timeline"> 
                             </div>
-                        ))
-                    ))}
-                    <div className="startMarker">
-                        2020
-                    </div>       
+                            <div className="timePointContainer">
+                                {companyExperienceData.map((dataItems, index) => (
+                                    index > 0 ? timePointTopCSSValue = timePointTopCSSValue + 70 : timePointTopCSSValue,
+                                    dataItems.map((dataItem) => (
+                                        <div
+                                            key={index} 
+                                            className="timePoint"
+                                            // style={{top:`${timePointTopCSSValue}px`}}
+                                            id={dataItem?.value}
+                                            value={dataItem?.value}
+                                            onClick={(e) => {onCompanySelection(e, dataItem?.value)}}
+                                        >
+                                        </div>
+                                    ))
+                                ))}
+                            </div> 
+                        </div>
+                        <div className="startMarker">
+                            2020
+                        </div>  
+                    </div>
                 </div>
             </div>
 
@@ -190,7 +173,7 @@ export default function Experience() {
                 </div>
             </div>
         </div>
-        <span className="companyNdaDisclaimer">Note:- The company information listed above is in compliance with their respective NDAs (Non Disclosure Agreements).</span>
+        <span className="companyNdaDisclaimer">Note :- The company information listed above is in compliance with their respective NDAs (Non Disclosure Agreements).</span>
     </div>
   )
 }

@@ -1,11 +1,15 @@
+@import "global.scss";
 .app{
     height: 100vh;
+    overflow-x: hidden;
 
     .sections{
         width: 100%;
-        height: calc(100vh - 70px);
+        // height: calc(100vh - 100px);
         // background-color: #ebebeb;
-        background: linear-gradient(90deg,blue,skyblue,blue);
+        // background: linear-gradient(90deg,blue,skyblue,blue);
+        // background-color: whitesmoke;
+        background-color: $backgroundColor;
         position: relative;
         top: 70px;
         scroll-behavior: smooth;
@@ -19,6 +23,9 @@
             width: 100vw;
             height: calc(100vh - 70px);
             scroll-snap-align: start;
+            @include mobile{
+                height: auto;
+            }
         }
 
     }

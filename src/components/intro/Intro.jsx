@@ -33,7 +33,7 @@ export default function Intro() {
                     <h4>B.C.A, M.Sc. IT</h4>
                     <h3>   <span className="dynamicText" ref={textRef}></span></h3>
                 </div>
-                <a href="#portfolio">
+                <a className="doubleArrow" href="#portfolio">
                     <DoubleArrow style={{ fontSize: 50 }}/> 
                 </a>
             </div>

@@ -1,7 +1,7 @@
 @import "../../global.scss";
 
 .menu{
-    width: 300px;
+    width: 250px;
     height: 100vh;
     background-color: white;
     position: fixed;
@@ -10,8 +10,10 @@
     z-index: 3;
     display: flex;
     align-items: center;
+    text-align: center;
     justify-content: center;
     transition: all 1s ease;
+    border: 1px solid ghostwhite;
 
     &.active{
         right: 0;
@@ -25,6 +27,9 @@
         font-size: 30px;
         font-weight: 300;
         color: white;
+        @include mobile{
+            margin-top: -60px;
+        }
 
         @media(max-height: 470px){
             font-size: 20px;
@@ -34,10 +39,10 @@
             margin-bottom: 30px;
 
             @include mobile{
-                margin-bottom: 30px;
+                margin-bottom: 20px;
             }
 
-            //smallest screen congig
+            //smallest screen config
             @media(max-height: 400px){
                 margin-bottom: 20px;
             }

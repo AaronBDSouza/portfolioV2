@@ -12,7 +12,7 @@ export default function CardPopUp({position, details}) {
     let cardRating = details[2] >= 0 && details[2] <= 5 ? details[2] : 0;
 
   return (
-    <div className="cardPopUp" style={{top:`${positionX - height}px`, left:`${positionY + width}px`}}>
+    <div className="cardPopUp" style={{top:`${positionX - height +80}px`, left:`${positionY + width}px`}}>
         <div className="cardPopUpCaret">
             <FaCaretLeft/>
         </div>

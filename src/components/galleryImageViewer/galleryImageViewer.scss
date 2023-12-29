@@ -24,12 +24,11 @@
                 align-items: center;
                 justify-content: center;
                 display: flex;
-                height: 500px;
+                // height: 500px;
                 width: 100%;
                 z-index: 3;
-                margin-top: 40px;
+                // margin: 0 10px 0 10px;
                 transition: all 1s ease;
-
 
                 @include mobile{
                     height: 400px;
@@ -38,7 +37,8 @@
                 }
         
                 img{
-                    height: inherit;
+                    // height: inherit;
+                    height: 100%;
                     @include mobile{
                         object-fit: contain;
                     }
@@ -46,16 +46,22 @@
         
                 .closeImgDiv{
                     height: 100%;
+                    margin-top: 10px;
                     cursor: pointer;
                     .closeImg{
                         display: flex; 
                         position: absolute;
                         right: 0;
                         margin: 0 50px 0 0;
-                        color: white;
+                        color: red;
                         font-size: 40px;
+                        font-weight: 600;
                         border: 5px solid white;
                         padding: 0 10px 0 10px;
+
+                        &:hover{
+                            font-size: 45px;
+                        }
 
                         @include mobile{
                             top:0;
@@ -67,6 +73,11 @@
                             border: 5px solid rgb(179, 2, 2);
                             background-color: white;
                             padding: 0 10px 0 10px;
+
+                            &:hover{
+                                font-size: 35px;
+                            }
+
                         }
                     }
                 }
