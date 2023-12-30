@@ -13,7 +13,12 @@ export default function TopBar({menuOpen,setMenuOpen}) {
         <div className={"topbar " + (menuOpen && "active")}>
             <div className="wrapper">
                 <div className="left">
-                    <a href="#intro" className="logo">arndsz7.com</a>
+                    <a href="" className="logo">
+                        <div className="websiteName">
+                            <span>aaronbdsouza.</span>
+                            <span>github.io</span>
+                        </div>
+                    </a>
 
                     <div className="displayLinkShortcutsMobile">
                         <KeyboardArrowDown className="topBarArrow" onClick={() => {showLinksDropdown();}}/>
