@@ -10,7 +10,7 @@ export default function PdfViewer({loadPdf, closePdf}) {
   const [viewPdf, setViewPdf] = useState(null);
   const [displayPdf, setDisplayPdf] = useState(false);
 
-  var filePath = process.env.REACT_APP_PUBLIC_URL + '/assets/cv/CV-AaronBDSouza.pdf';
+  var filePath = window.location.href + '/assets/cv/CV-AaronBDSouza.pdf';
 
   const convertPdfFile = async(filePath) => {
     var result = null;
