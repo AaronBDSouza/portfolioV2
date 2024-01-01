@@ -10,7 +10,10 @@ export default function PdfViewer({loadPdf, closePdf}) {
   const [viewPdf, setViewPdf] = useState(null);
   const [displayPdf, setDisplayPdf] = useState(false);
 
-  var filePath = window.location.href + '/assets/cv/CV-AaronBDSouza.pdf';
+  var pckgJSON = require('../../../package.json');
+  var homeURL = pckgJSON.homepage;
+
+  var filePath = homeURL + '/assets/cv/CV-AaronBDSouza.pdf';
 
   const convertPdfFile = async(filePath) => {
     var result = null;
