@@ -48,7 +48,7 @@ export default function Contact() {
                     <input type="text" name="sender_name" placeholder="    Your Name"/>
                     <input type="text" name="sender_email" placeholder="    Your Email"/>
                     <textarea placeholder="  Message" name="message"></textarea>
-                    <button type="submit">Send</button>
+                    <button id="submitButton" type="submit">Send</button>
 
                     { message && <span>Your message was sent. :~)</span> }
                     { errorMessage && <span className="errorMessage">Please enter data in all fields!</span> }
