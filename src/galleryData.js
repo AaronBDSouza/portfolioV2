@@ -44,14 +44,14 @@ export const galleryData = [
     },
     {
         id: 7,
-        title: "Techlipse 2018",
+        title: "Techlipse - Organizing Team",
         location: "St. Xavier's College, Mapusa",   
         year: "2018",          
         img: "assets/gallery_images/techlipse1.jpg"
     },
     {
         id: 8,
-        title: "Techlipse 2018",
+        title: "Techlipse - Organizing Team",
         location: "St. Xavier's College, Mapusa",   
         year: "2018",          
         img: "assets/gallery_images/techlipse2.jpg"
@@ -68,7 +68,14 @@ export const galleryData = [
         title: "OneShield Team",
         location: "OneShield Office, Panaji",   
         year: "2022",          
-        img: "assets/gallery_images/oneshield1.jpg"
+        img: "assets/gallery_images/oneshield1.jpeg"
+    },
+    {
+        id: 11,
+        title: "OneShield Team",
+        location: "OneShield Office, Panaji",   
+        year: "2022",          
+        img: "assets/gallery_images/oneshield2.jpg"
     },
     {
         id: 11,

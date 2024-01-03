@@ -128,33 +128,23 @@
 
                     .icon {
                         &.linkedin{
-                            &:hover {
-                                color: blue;
-                            }
+                            color: blue;
                         }
         
                         &.github{
-                            &:hover {
-                                color: purple;
-                            }
+                            color: purple;
                         }
         
                         &.gmail{
-                            &:hover {
-                                color: red;
-                            }
+                            color: red;
                         }
         
                         &.instagram{
-                            &:hover {
-                                color: orange;
-                            }
+                            color: orange;
                         }
         
                         &.cv{
-                            &:hover {
-                                color: brown;
-                            }
+                            color: brown;
                         }
                     }
     
