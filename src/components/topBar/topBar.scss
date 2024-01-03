@@ -80,14 +80,15 @@
                     }
                 }
 
+                a, a:visited, a:active{
+                    display: contents;
+                    text-decoration: none;
+                    color: inherit;
+                }
+
                 span{
                     font-size: 15px;
                     font-weight: 600;
-
-                    a{
-                        text-decoration: none;
-                        color: inherit;
-                    }
                 }
 
                 &.linkedin{
@@ -111,7 +112,7 @@
                 }
 
                 &:hover {
-                    color: orange;
+                    color: green;
                 }
             }
 
