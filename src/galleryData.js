@@ -79,7 +79,7 @@ export const galleryData = [
     },
     {
         id: 8,
-        title: "Techlipse - Organizers",
+        title: "Techlipse 2018",
         location: "St. Xavier's College, Mapusa",   
         year: "2018",          
         img: "assets/gallery_images/techlipse12.jpg"
@@ -149,7 +149,7 @@ export const galleryData = [
     },
     {
         id: 14,
-        title: "Techlipse - Organizers",
+        title: "Techlipse - 2017",
         location: "St. Xavier's College, Mapusa",   
         year: "2017",          
         img: "assets/gallery_images/techlipse21.jpg"
