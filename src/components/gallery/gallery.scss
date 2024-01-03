@@ -1,7 +1,10 @@
 @import "../../global.scss";
 
 .gallery{
-    // background-color: whitesmoke;
+    @include notebook{
+        margin-top: 200px;
+    }
+
     display: flex;
     align-items: center;
     position: relative;
@@ -222,7 +225,11 @@
                         font-weight: 600;
                         // margin-top: 5px;
                         @include mobile{
-                            font-size: 12px;
+                            font-size: 10px;
+                        }
+
+                        @include notebook{
+                            font-size: 14px;
                         }
                     }
                 }

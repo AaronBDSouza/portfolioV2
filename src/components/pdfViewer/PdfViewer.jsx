@@ -39,7 +39,7 @@ export default function PdfViewer({loadPdf, closePdf}) {
     convertPdfFile(filePath);
     setTimeout(() => {
       setDisplayPdf(true);
-    }, 1000);
+    }, 3000);
   }, [pdfFile]);
 
   const newplugin = defaultLayoutPlugin();

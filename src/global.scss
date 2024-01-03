@@ -1,13 +1,27 @@
 $mainColor:  rgb(18, 18, 77);
 
-$width: 768px;
+$mobileWidth: 768px;
+
+$notebookWidth: 1366px;
 
 $sectionHeader: 50px;
 
 $backgroundColor: gainsboro;
 
-@mixin mobile{
-    @media(max-width: #{$width}){
+@mixin notebook{
+    @media(min-width: $mobileWidth) and (max-width: $notebookWidth) {
         @content
     }
-}
+};
+
+@mixin mobile{
+    @media(max-width: #{$mobileWidth}){
+        @content
+    }
+};
+
+@mixin topBarIcons{
+    @media(max-width: 1270px){
+        @content
+    }
+};

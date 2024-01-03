@@ -36,26 +36,29 @@ export default function TopBar({menuOpen,setMenuOpen}) {
                         </div>
                     </div>
 
-                    <div className="itemContainer linkedin">
-                        <LinkedIn className="icon"/>
-                        <span><a href="https://www.linkedin.com/in/aaron-baptista-d-souza?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BBrbv4ZdiTN6BLcbb1Rvp1Q%3D%3D">aaronbdsouza</a></span>
+                    <div className="iconLinks">
+                        <div className="itemContainer linkedin">
+                            <LinkedIn className="icon"/>
+                            <span className="iconLink"><a href="https://www.linkedin.com/in/aaron-baptista-d-souza?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BBrbv4ZdiTN6BLcbb1Rvp1Q%3D%3D">aaronbdsouza</a></span>
+                        </div>
+                        <div className="itemContainer gmail">
+                            <Mail className="icon"/>
+                            <span className="iconLink"><a href="mailto:aaronbdsouza7@gmail.com">aaronbdsouza7@gmail.com</a></span>
+                        </div>
+                        <div className="itemContainer github">
+                            <GitHub className="icon"/>
+                            <span className="iconLink"><a href="https://github.com/aaronbdsouza">aaronbdsouza</a></span>
+                        </div>
+                        <div className="itemContainer instagram">
+                            <Instagram className="icon"/>
+                            <span className="iconLink"><a href="https://www.instagram.com/arrowknight007/">arrowknight007</a></span>
+                        </div>
+                        <div className="itemContainer cv">
+                            <Person className="icon"/>
+                            <span className="iconLink"><a href="assets/cv/CV-AaronBDSouza.pdf" download="CV - Aaron B D Souza">C.V</a></span>
+                        </div>
                     </div>
-                    <div className="itemContainer gmail">
-                        <Mail className="icon"/>
-                        <span><a href="mailto:aaronbdsouza7@gmail.com">aaronbdsouza7@gmail.com</a></span>
-                    </div>
-                    <div className="itemContainer github">
-                        <GitHub className="icon"/>
-                        <span><a href="https://github.com/aaronbdsouza">aaronbdsouza</a></span>
-                    </div>
-                    <div className="itemContainer instagram">
-                        <Instagram className="icon"/>
-                        <span><a href="https://www.instagram.com/arrowknight007/">arrowknight007</a></span>
-                    </div>
-                    <div className="itemContainer cv">
-                        <Person className="icon"/>
-                        <span><a href="assets/cv/CV-AaronBDSouza.pdf" download="CV - Aaron B D Souza">C.V</a></span>
-                    </div>
+
                 </div>
                 <div className="right">
                     <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>

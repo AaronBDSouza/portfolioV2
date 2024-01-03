@@ -75,6 +75,9 @@
                 .icon{
                     font-size: 18px;
                     margin-right: 5px;
+                    @include topBarIcons{
+                        font-size: 30px;
+                    }
                 }
 
                 span{
@@ -88,33 +91,23 @@
                 }
 
                 &.linkedin{
-                    &:hover {
-                        color: blue;
-                    }
+                    color: blue;
                 }
 
                 &.github{
-                    &:hover {
-                        color: purple;
-                    }
+                    color: purple;
                 }
 
                 &.gmail{
-                    &:hover {
-                        color: red;
-                    }
+                    color: red;
                 }
 
                 &.instagram{
-                    &:hover {
-                        color: orange;
-                    }
+                    color: orange;
                 }
 
                 &.cv{
-                    &:hover {
-                        color: brown;
-                    }
+                    color: brown;
                 }
 
                 &:hover {
@@ -173,6 +166,15 @@
 
                 @include mobile{
                     display: block;
+                }
+            }
+
+            .iconLinks{
+                display: flex;
+                @include topBarIcons{
+                    .iconLink{
+                        display: none;
+                    }
                 }
             }
         }

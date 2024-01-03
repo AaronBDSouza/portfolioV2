@@ -2,6 +2,9 @@
 .skills{
     display: block;
     scroll-snap-align: start;
+    @include notebook{
+        margin-top: 200px;
+    }
     
     h1{
         display: flex;
