@@ -4,6 +4,9 @@ import { galleryData } from '../../galleryData';
 import GalleryImageViewer from '../galleryImageViewer/GalleryImageViewer';
 
 export default function Gallery() {
+    var pckgJSON = require('../../../package.json');
+    var projectName = pckgJSON.name;
+    
     //For Slider Display
     var screenWidth = parseInt(window.innerWidth);
     const[nosOfSlidesInView, setNosOfSlidesInView] = useState(3);
@@ -88,14 +91,14 @@ export default function Gallery() {
         <div className="gallery" id="gallery">
             {/* Left Arrow Section */}
             <span className="arrowContainer left"></span>
-            <img src="assets/left_arrow.png" alt="left" className="arrow left" onClick={() => handleClick("left")}/> 
+            <img src={ projectName + "/assets/left_arrow.png"} alt="left" className="arrow left" onClick={() => handleClick("left")}/> 
 
             {/* Section Header */}
             <h1>Gallery</h1>
 
             {/* Right Arrow Section */}
             <span className="arrowContainer right"></span>
-            <img src="assets/left_arrow.png" alt="right" className="arrow right" onClick={() => handleClick("right")}/>
+            <img src={ projectName + "/assets/left_arrow.png"} alt="right" className="arrow right" onClick={() => handleClick("right")}/>
             
             {/* Slideshow for Medium to Large Screens */}
             <div className="sliderContainer">
@@ -106,7 +109,7 @@ export default function Gallery() {
                             <div className="top">
                                 <div className="leftContainer">
                                     <div className="imgContainer">
-                                        <img src={sliderItem.img} alt={sliderItem.title} onClick={() =>  handleImageClick(sliderItem.img,sliderItem.title)}/>
+                                        <img src={ projectName + "/" + sliderItem.img} alt={sliderItem.title} onClick={() =>  handleImageClick(sliderItem.img,sliderItem.title)}/>
                                     </div>
                                 </div>
                             </div>

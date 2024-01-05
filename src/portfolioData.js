@@ -266,7 +266,7 @@ export const jobDescriptionData = [
 					text: "Worked on Enterprise Software development in UI designing, functionality migration and API Integration."
 				},
 				{
-					text: "Tech Stack:- React, Angular, Typescript, Node, Java, Sencha Ext JS."
+					text: "Tech Stack:- Angular, Typescript, Java, Sencha Ext JS."
 				},
 
 			]
