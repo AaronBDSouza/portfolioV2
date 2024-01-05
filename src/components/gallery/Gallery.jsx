@@ -88,14 +88,14 @@ export default function Gallery() {
         <div className="gallery" id="gallery">
             {/* Left Arrow Section */}
             <span className="arrowContainer left"></span>
-            <img src="/assets/left_arrow.png" alt="left" className="arrow left" onClick={() => handleClick("left")}/> 
+            <img src="assets/left_arrow.png" alt="left" className="arrow left" onClick={() => handleClick("left")}/> 
 
             {/* Section Header */}
             <h1>Gallery</h1>
 
             {/* Right Arrow Section */}
             <span className="arrowContainer right"></span>
-            <img src="/assets/left_arrow.png" alt="right" className="arrow right" onClick={() => handleClick("right")}/>
+            <img src="assets/left_arrow.png" alt="right" className="arrow right" onClick={() => handleClick("right")}/>
             
             {/* Slideshow for Medium to Large Screens */}
             <div className="sliderContainer">
