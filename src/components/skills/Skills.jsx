@@ -4,8 +4,6 @@ import CardPopUp from "../cardPopUP/CardPopUp";
 import { skillsImages, skillsData, featuresData, charactersData } from '../../portfolioData';
 
 export default function Skills() {
-    var pckgJSON = require('../../../package.json');
-    var projectName = pckgJSON.name;
     const [displayCardPopUP, setDisplayCardPopUP] = useState(false);
     let [cardPopUpPosition, setCardPopUpPosition] = useState([]);
     let [cardPopUpDetails, setCardPopUpDetails] = useState([]);
@@ -52,7 +50,7 @@ export default function Skills() {
                     <div className="skillsImages">
                         {skillsImages.map((dataItem) => (
                             <div key={dataItem?.alt} className="skillImage">
-                                <img src={projectName + "/" + dataItem?.img} alt={dataItem?.alt}/>
+                                <img src={dataItem?.img} alt={dataItem?.alt}/>
                                 <div className="skillImageText">
                                     <span>{dataItem?.label}</span>
                                 </div>
